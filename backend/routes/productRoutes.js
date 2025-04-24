@@ -13,11 +13,12 @@ router.get(
   })
 );
 
-// @desc    Fetch single product
+// @desc    Fetch single product by ID
 router.get(
   '/:id',
   asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
+
     if (product) {
       res.json(product);
     } else {
