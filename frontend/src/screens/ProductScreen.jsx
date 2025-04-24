@@ -18,8 +18,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ProductScreen() {
+  const navigate = useNavigate();
+
+  const addToCartHandler = () => {
+    navigate(`/cart/${id}?qty=${qty}`);
+  };
   const { id } = useParams();
   const [product, setProduct] = useState();
   useEffect(() => {
@@ -125,11 +131,17 @@ function ProductScreen() {
             )}
           </Stack>
 
-          <Typography variant="h5" fontWeight="bold" color="primary" gutterBottom>
+          <Typography
+            variant="h5"
+            fontWeight="bold"
+            color="primary"
+            gutterBottom
+          >
             ${product.price}
           </Typography>
 
           <Button
+            onClick={addToCartHandler}
             variant="contained"
             fullWidth
             disabled={product.countInStock === 0}

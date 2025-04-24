@@ -9,6 +9,12 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProductScreen from "./screens/ProductScreen";
 
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import CartScreen from "./screens/CartScreen";
+
+
+
 function Main() {
   const [mode, setMode] = useState("light");
   const theme = useMemo(() => createAppTheme(mode), [mode]);
@@ -22,14 +28,16 @@ function Main() {
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
           <Route path="/product/:id" element={<ProductScreen />} />
+          <Route path="/cart/:id?" element={<CartScreen />} />
+
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
     <Main />
-  </React.StrictMode>
+  </Provider>
 );
