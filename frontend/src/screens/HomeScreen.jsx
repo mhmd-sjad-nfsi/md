@@ -1,9 +1,21 @@
 import { Container, Grid } from "@mui/material";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
-import products from "../data/products";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 function HomeScreen({ mode, setMode }) {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get("/api/products");
+      setProducts(data);
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <>
       <Header mode={mode} setMode={setMode} />
