@@ -6,7 +6,9 @@
   "scripts": {
   "start": "node server.js",
   "server": "nodemon server.js",
-  "seed": "node seeder.js"
+  "seed": "node seeder.js",
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "client": "npm start --prefix frontend"
 }
 ,
   "keywords": [],

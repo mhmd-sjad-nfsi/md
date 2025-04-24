@@ -1,5 +1,3 @@
-import { useParams } from "react-router-dom";
-import { useState } from "react";
 import {
   Container,
   Grid,
@@ -16,12 +14,21 @@ import {
   InputLabel,
   Divider,
 } from "@mui/material";
-import products from "../data/products";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 
 function ProductScreen() {
   const { id } = useParams();
-  const product = products.find((p) => p.id === Number(id));
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id}`);
+      setProduct(data);
+    };
+    fetchProduct();
+  }, [id]);
   const [qty, setQty] = useState(1);
 
   if (!product) {
