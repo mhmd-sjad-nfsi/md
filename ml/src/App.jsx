@@ -1,15 +1,22 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ProductScreen from "./screens/ProductScreen"
+import { Container, Grid } from "@mui/material";
+import ProductCard from "./components/ProductCard";
+import Header from "./components/Header";
+import products from "./data/products";
 
-function App() {
+function App({ mode, setMode }) {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} /> {/* صفحه اصلی */}
-        <Route path="/product/:id" element={<ProductScreen />} /> {/* صفحه محصول */}
-      </Routes>
-    </Router>
+    <>
+      <Header mode={mode} setMode={setMode} />
+      <Container sx={{ mt: 4 }}>
+        <Grid container spacing={3}>
+          {products.map((product, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <ProductCard product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </>
   );
 }
 
