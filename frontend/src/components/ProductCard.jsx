@@ -28,7 +28,7 @@ function ProductCard({ product }) {
     >
       <Box
         component={RouterLink}
-        to={`/product/${product.id}`}
+        to={`/product/${product._id}`}
         sx={{
           position: "absolute",
           inset: 0,

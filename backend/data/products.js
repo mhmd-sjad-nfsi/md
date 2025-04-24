@@ -1,6 +1,5 @@
 const products = [
     {
-      id: 1,
       name: 'Sony WH-1000XM5',
       image: 'https://th.bing.com/th/id/OIP.zpTNyHO7jlV56PuPwsvdFAHaGd?rs=1&pid=ImgDetMain',
       description: 'Industry-leading noise cancellation with premium sound quality and long battery life.',
@@ -12,7 +11,6 @@ const products = [
       numReviews: 245,
     },
     {
-      id: 2,
       name: 'MacBook Pro 14" M3',
       image: 'https://dkstatics-public.digikala.com/digikala-products/15fa5b440490e1ac59aadb81e15fe65d69156699_1731149454.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90',
       description: 'The power of Apple Silicon with a beautiful Liquid Retina XDR display.',
@@ -24,7 +22,6 @@ const products = [
       numReviews: 132,
     },
     {
-      id: 3,
       name: 'Samsung Galaxy S24 Ultra',
       image: 'https://th.bing.com/th/id/OIP.Dsbg_lJqUbThqEYepTq9rwHaFj?rs=1&pid=ImgDetMain',
       description: 'AI-powered camera with cutting-edge performance and brilliant display.',
@@ -36,7 +33,6 @@ const products = [
       numReviews: 210,
     },
     {
-      id: 4,
       name: 'Dell XPS 13 Plus',
       image: 'https://infotekph.com/wp-content/uploads/2023/02/dell-dell-xps-13-plus-9320-i5-8gb-512gb-platinum-o-1024x1024.png',
       description: 'Minimalist design meets powerful performance in an ultra-portable laptop.',
@@ -48,7 +44,6 @@ const products = [
       numReviews: 86,
     },
     {
-      id: 5,
       name: 'Nintendo Switch OLED',
       image: 'https://dkstatics-public.digikala.com/digikala-products/91c282112880c6f3fac44bcec262dfe467de4b27_1636977148.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90',
       description: 'Vibrant OLED screen and hybrid design for gaming anywhere, anytime.',
@@ -60,7 +55,6 @@ const products = [
       numReviews: 178,
     },
     {
-      id: 6,
       name: 'Logitech MX Master 3S',
       image: 'https://setra.mk/wp-content/uploads/2023/05/Logitech-MX-Master-3S-1200x630-1.jpg',
       description: 'Ergonomic wireless mouse with silent clicks and precision tracking.',

@@ -21,7 +21,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 function ProductScreen() {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState();
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/api/products/${id}`);
@@ -60,7 +60,6 @@ function ProductScreen() {
           gap: 4,
         }}
       >
-        {/* تصویر محصول */}
         <Box
           sx={{
             flex: 1,
@@ -83,7 +82,6 @@ function ProductScreen() {
           />
         </Box>
 
-        {/* جزئیات محصول */}
         <Box sx={{ flex: 2 }}>
           <Typography variant="h4" fontWeight="bold" gutterBottom>
             {product.name}
