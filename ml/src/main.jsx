@@ -4,7 +4,7 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createAppTheme } from "./theme";
 
-import App from "./App";
+import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 
@@ -17,7 +17,7 @@ function Main() {
       <CssBaseline />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App mode={mode} setMode={setMode} />} />
+          <Route path="/" element={<HomeScreen mode={mode} setMode={setMode} />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
         </Routes>

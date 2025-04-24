@@ -1,9 +1,9 @@
 import { Container, Grid } from "@mui/material";
-import ProductCard from "./components/ProductCard";
-import Header from "./components/Header";
-import products from "./data/products";
+import ProductCard from "../components/ProductCard";
+import Header from "../components/Header";
+import products from "../data/products";
 
-function App({ mode, setMode }) {
+function HomeScreen({ mode, setMode }) {
   return (
     <>
       <Header mode={mode} setMode={setMode} />
@@ -20,4 +20,4 @@ function App({ mode, setMode }) {
   );
 }
 
-export default App;
+export default HomeScreen;
