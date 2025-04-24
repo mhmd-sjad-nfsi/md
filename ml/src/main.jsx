@@ -7,6 +7,7 @@ import { createAppTheme } from "./theme";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProductScreen from "./screens/ProductScreen";
 
 function Main() {
   const [mode, setMode] = useState("light");
@@ -20,6 +21,7 @@ function Main() {
           <Route path="/" element={<HomeScreen mode={mode} setMode={setMode} />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/product/:id" element={<ProductScreen />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

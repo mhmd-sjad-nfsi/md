@@ -8,21 +8,34 @@ import {
   Rating,
   Chip,
   Stack,
+  Box,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 function ProductCard({ product }) {
   return (
     <Card
       sx={{
+        position: "relative",
+        textDecoration: "none",
         maxWidth: 345,
         borderRadius: 4,
         boxShadow: 4,
         transition: "transform 0.3s ease",
-        "&:hover": {
-          transform: "scale(1.03)",
-        },
+        "&:hover": { transform: "scale(1.03)" },
+        overflow: "hidden",
       }}
     >
+      <Box
+        component={RouterLink}
+        to={`/product/${product.id}`}
+        sx={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+        }}
+      />
+
       <CardMedia
         component="img"
         height="200"
@@ -30,39 +43,23 @@ function ProductCard({ product }) {
         alt={product.name}
         sx={{ objectFit: "cover" }}
       />
-      <CardContent>
+
+      <CardContent sx={{ position: "relative", zIndex: 2 }}>
         <Typography gutterBottom variant="h6" component="div" fontWeight="bold">
           {product.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary" noWrap>
-          {product.description}
-        </Typography>
-
-        <Stack direction="row" spacing={1} mt={2} alignItems="center">
-          <Rating
-            name="read-only"
-            value={product.rating}
-            precision={0.5}
-            readOnly
-            size="small"
-          />
-          <Typography variant="caption" color="text.secondary">
-            ({product.numReviews} reviews)
+        <Stack direction="row" spacing={1} alignItems="center">
+          <Rating value={product.rating} precision={0.5} readOnly size="small" />
+          <Typography variant="body2" color="text.secondary">
+            ({product.numReviews})
           </Typography>
         </Stack>
-
-        <Typography variant="h6" color="primary" mt={1}>
+        <Typography variant="h6" color="primary" fontWeight="medium">
           ${product.price}
         </Typography>
-
-        {product.countInStock > 0 ? (
-          <Chip label="In Stock" color="success" size="small" sx={{ mt: 1 }} />
-        ) : (
-          <Chip label="Out of Stock" color="error" size="small" sx={{ mt: 1 }} />
-        )}
       </CardContent>
 
-      <CardActions>
+      <CardActions sx={{ position: "relative", zIndex: 2 }}>
         <Button
           size="small"
           variant="contained"
